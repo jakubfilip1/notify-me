@@ -17,8 +17,8 @@ class DashboardController extends Controller
 
         if($request->hasFile('notificationFile'))
         {
-            $fileName = $request->file('notificationFile')->getClientOriginalName();
-            $request->file('notificationFile')->storeAs('notifications', $fileName, 'public');
+            $fileName = $request->file('notificationFile')->getClientOriginalName() . "_" . time();
+            $request->file('notificationFile')->storeAs('notifications/' . Auth::id(), $fileName, 'public');
         }
 
         $notification = new Notification();

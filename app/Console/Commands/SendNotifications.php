@@ -45,7 +45,7 @@ class SendNotifications extends Command
 
                 if($notification->file)
                 {
-                    $fileDirectory = storage_path('/app/public/notifications/' . $notification->file);
+                    $fileDirectory = storage_path('/app/public/notifications/' . $notification->user->id . '/' . $notification->file);
 
                     $message->attach($fileDirectory, [
                        'as' => $notification->file,
