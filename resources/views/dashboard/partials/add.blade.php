@@ -9,9 +9,9 @@
         </p>
     </header>
 
-    <form method="post" action="#" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('dashboard.add') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
-        @method('put')
+        @method('post')
 
         <div>
             <x-input-label for="notificationTitle" :value="__('Title')" />
