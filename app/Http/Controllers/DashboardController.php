@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+    public function index(Request $request)
+    {
+        $notifications = Notification::where('user_id', Auth::id())
+            ->get();
+
+        return view('dashboard.dashboard', ['notifications' => $notifications]);
+    }
+
     public function add(Request $request)
     {
         $title = $request->input('notificationTitle');
@@ -17,7 +25,7 @@ class DashboardController extends Controller
 
         if($request->hasFile('notificationFile'))
         {
-            $fileName = $request->file('notificationFile')->getClientOriginalName() . "_" . time();
+            $fileName = time() . '_' . $request->file('notificationFile')->getClientOriginalName();
             $request->file('notificationFile')->storeAs('notifications/' . Auth::id(), $fileName, 'public');
         }
 

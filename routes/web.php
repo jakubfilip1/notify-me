@@ -9,9 +9,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
-        Route::get('/', function () {
-            return view('dashboard.dashboard');
-        })->name('dashboard');;
+        Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
         Route::post('/add', [\App\Http\Controllers\DashboardController::class, 'add'])->name('dashboard.add');
     });
 
