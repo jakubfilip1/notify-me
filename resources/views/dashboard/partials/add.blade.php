@@ -15,17 +15,17 @@
 
         <div>
             <x-input-label for="notificationTitle" :value="__('Title')" />
-            <input type="text" id="notificationTitle" name="notificationTitle" class="mt-1 block w-full" />
+            <input type="text" id="notificationTitle" name="notificationTitle" class="mt-1 block w-full" required />
         </div>
 
         <div>
             <x-input-label for="notificationContent" :value="__('Content')" />
-            <textarea id="notificationContent" name="notificationContent" class="mt-1 block w-full"></textarea>
+            <textarea id="notificationContent" name="notificationContent" class="mt-1 block w-full" required></textarea>
         </div>
 
         <div>
             <x-input-label for="notificationDate" :value="__('Notification Date')" />
-            <input type="datetime-local" id="notificationDate" name="notificationDate" class="mt-1 block w-full" />
+            <input type="datetime-local" id="notificationDate" name="notificationDate" class="mt-1 block w-full" required />
         </div>
 
         <div>
